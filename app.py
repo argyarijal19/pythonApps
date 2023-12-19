@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from routes.user_router import auth
 from helper.exception import ExceptionHandler
+from starlette_exporter import PrometheusMiddleware, handle_metrics
 
 load_dotenv()
 
@@ -20,4 +21,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.add_middleware(PrometheusMiddleware)
+app.add_route("/metrics", handle_metrics)
 app.include_router(auth)
