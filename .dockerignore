@@ -1,0 +1,10 @@
+# flyctl launch added from .gitignore
+**/vnev
+**/vnev.bak
+**/__pycache__
+**/*.pyc
+
+# flyctl launch added from vnev/.gitignore
+# created by virtualenv automatically
+vnev/**/*
+fly.toml
